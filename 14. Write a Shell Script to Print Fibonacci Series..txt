@@ -1,0 +1,16 @@
+a=0
+b=1
+p=2
+read -p "Enter no.of terms:" n
+echo -n "$a "
+echo -n "$b "
+#Fibonacci series logic
+while((p<=n))
+do
+c=$((a+b))
+echo -n "$c "
+a=$b
+b=$c
+p=`expr $p + 1`
+done
+echo -e "\n"

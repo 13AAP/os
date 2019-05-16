@@ -1,0 +1,40 @@
+PRO5.C
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/wait.h>
+int main( void )
+{
+printf("Hello World");//write fibonaci here
+return 0;
+}
+//to compile:cc PRO5.c -o PRO5.c
+//to run:./PRO4
+
+PRO4.C
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h> 
+#include <sys/types.h> 
+#include <sys/wait.h> 
+
+int main()
+{
+     pid_t pid=fork();
+    if (pid==0)
+        {
+                /* child process */
+        char *argv[]={"./pro5",NULL};
+        execv(argv[0],argv); 
+        exit(127);
+                /* only if execv fails */
+    }
+    else {
+        waitpid(pid,0,0);
+    }
+    return 0;
+}
+//to compile:cc PRO4.c -o PRO4.c
+//./PRO4
